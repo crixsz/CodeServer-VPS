@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "Installing CODE-SERVER..."
 # Install code-server
 curl -fsSL https://code-server.dev/install.sh | sh
 
@@ -22,3 +23,6 @@ EOT
 systemctl daemon-reload
 systemctl start code-server
 systemctl enable code-server
+clear
+sleep 3
+echo "Installation Successful"
