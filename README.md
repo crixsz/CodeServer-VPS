@@ -6,10 +6,11 @@
   <a><img src="https://img.shields.io/badge/Support-Debian-red.svg"></a>
   
 </p>
-<p align="center"><bold>Installation</bold></p>
-````
+<p align="center"><b>Installation </b></p>
+
+```
 wget https://raw.githubusercontent.com/crixsz/CodeServer-VPS/main/code-server.sh && chmod +x code-server.sh && ./code-server.sh
-````
+```
 <p align="center"><bold>Additional Info</bold></p>
 <p><bold>Web UI: yourdomain/ipaddress:8118</bold></p>
 <p><bold>Default password: 12345</bold></p>
