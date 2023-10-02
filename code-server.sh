@@ -1,19 +1,6 @@
 #!/bin/bash
-if [ -f /etc/systemd/system/code-server.service ]; then
-    echo "Uninstalling CODE-SERVER..."
-    
-    # Stop and disable code-server service
-    systemctl stop code-server
-    systemctl disable code-server   
-    rm -f /etc/systemd/system/code-server.service
-    if command -v code-server &>/dev/null; then
-    code-server --uninstall=systemd
-    clear
-    echo "Uninstalled Code-Server .."
-    exit 0
-fi
-fi
-echo "Installing CODE-SERVER..."
+installer(){
+    echo "Installing CODE-SERVER..."
 # Install code-server
 curl -fsSL https://code-server.dev/install.sh | sh
 
@@ -39,3 +26,20 @@ systemctl enable code-server
 clear
 sleep 3
 echo "Installation Successful"
+
+}
+if [ -f /etc/systemd/system/code-server.service ]; then
+    echo "Uninstalling CODE-SERVER..."
+    
+    # Stop and disable code-server service
+    systemctl stop code-server
+    systemctl disable code-server   
+    rm -f /etc/systemd/system/code-server.service
+    if command -v code-server &>/dev/null; then
+    pkill code-server
+    clear
+    echo "Uninstalled Code-Server .."
+    exit 0
+else
+    installer
+fi
