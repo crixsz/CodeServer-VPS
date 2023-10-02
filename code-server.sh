@@ -1,5 +1,15 @@
 #!/bin/bash
-
+if [ -f /etc/systemd/system/code-server.service ]; then
+    echo "Uninstalling CODE-SERVER..."
+    
+    # Stop and disable code-server service
+    systemctl stop code-server
+    systemctl disable code-server   
+    rm -f /etc/systemd/system/code-server.service
+    if command -v code-server &>/dev/null; then
+    code-server --uninstall=systemd
+fi
+fi
 echo "Installing CODE-SERVER..."
 # Install code-server
 curl -fsSL https://code-server.dev/install.sh | sh
@@ -12,7 +22,7 @@ After=network.target
 
 [Service]
 User=root
-Environment=PASSWORD=1234
+Environment=PASSWORD=zoxxenon
 ExecStart=/usr/bin/code-server --auth password --bind-addr 0.0.0.0:8118
 
 [Install]
