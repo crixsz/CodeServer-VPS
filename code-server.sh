@@ -43,3 +43,4 @@ if [ -f /etc/systemd/system/code-server.service ]; then
 else
     installer
 fi
+fi
