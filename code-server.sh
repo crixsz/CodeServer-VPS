@@ -8,6 +8,9 @@ if [ -f /etc/systemd/system/code-server.service ]; then
     rm -f /etc/systemd/system/code-server.service
     if command -v code-server &>/dev/null; then
     code-server --uninstall=systemd
+    clear
+    echo "Uninstalled Code-Server .."
+    exit 0
 fi
 fi
 echo "Installing CODE-SERVER..."
